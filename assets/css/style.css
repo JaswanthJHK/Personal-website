@@ -228,7 +228,7 @@ h6 {
 #hero {
   width: 100%;
   height: 100vh;
-  background: url("../img/pexels-pixabay-235985.jpg") top center;
+  background: url("/assets/img/pexels-pixabay-326311.jpg");
   background-size: cover;
 }
 
@@ -591,11 +591,11 @@ section {
   text-align: center;
   background: rgba(233, 152, 14, 0.75);
   transition: 0.3s;
-  width: 50%;
+  width: 80%;
 }
 
 .portfolio .portfolio-wrap .portfolio-links a:hover {
-  background: rgba(20, 157, 221, 0.95);
+  background: rgba(255, 208, 90, 0.95);
 }
 
 .portfolio .portfolio-wrap .portfolio-links a+a {
@@ -618,6 +618,18 @@ section {
 /*--------------------------------------------------------------
 # Portfolio Details
 --------------------------------------------------------------*/
+/* .main-work-div{
+  width: 800px;
+  height: auto;
+}
+.work-div{
+  width: 400px;
+  height: auto;
+}
+.work-image {
+  width: 400px;
+  height: auto;
+} */
 .portfolio-details {
   padding-top: 40px;
 }
