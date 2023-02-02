@@ -26,6 +26,7 @@
 
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 
   <!-- =======================================================
   * Template Name: iPortfolio - v3.10.0
@@ -61,7 +62,7 @@
           <li><a href="#hero" class="nav-link scrollto active"><i class="bx bx-home"></i> <span>Home</span></a></li>
           <li><a href="#about" class="nav-link scrollto"><i class="bx bx-user"></i> <span>About</span></a></li>
           <li><a href="#resume" class="nav-link scrollto"><i class="bx bx-file-blank"></i> <span>Resume</span></a></li>
-          <li><a href="#portfolio" class="nav-link scrollto"><i class="bx bx-book-content"></i> <span>Portfolio</span></a></li>
+          <li><a href="#portfolio" class="nav-link scrollto"><i class="bx bx-book-content"></i> <span>Works</span></a></li>
           <li><a href="#services" class="nav-link scrollto"><i class="bx bx-server"></i> <span>Services</span></a></li>
           <li><a href="#contact" class="nav-link scrollto"><i class="bx bx-envelope"></i> <span>Contact</span></a></li>
         </ul>
@@ -73,7 +74,7 @@
   <section id="hero" class="d-flex flex-column justify-content-center align-items-center ">
     <div class="hero-container" data-aos="fade-in">
       <h1>Jaswanth Harikrishna</h1>
-      <p>I'm <span class="typed" data-typed-items="Designer, Developer, Freelancer, Photographer"></span></p>
+      <p>I'm <span class="typed" data-typed-items="Developer, Freelancer, Photographer"></span></p>
     </div>
   </section><!-- End Hero -->
 
@@ -571,24 +572,25 @@
                 <h4>Call:</h4>
                 <p>7356162799</p>
               </div>
+              
+              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3929.951919262878!2d76.31955491471113!3d9.937958692893668!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b0873e8b17e4e1f%3A0x631726fd9022096b!2sBrototype%20Kochi!5e0!3m2!1sen!2sin!4v1675006786841!5m2!1sen!2sin" width="420" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 
-              <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12097.433213460943!2d-74.0062269!3d40.7101282!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xb89d1fe6bc499443!2sDowntown+Conference+Center!5e0!3m2!1smk!2sbg!4v1539943755621" frameborder="0" style="border:0; width: 100%; height: 290px;" allowfullscreen></iframe>
-            </div>
+                  </div>
 
           </div>
 
           <div class="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch">
-            <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+            <form action="" onclick="validateForm()" method="post" role="form" class="php-email-form">
               <div class="row">
                 <div class="form-group col-md-6">
                   <label for="name">Your Name</label>
-                  <input onchange ="namecheck()" type="text" id="check-name" style="border-width: 4px;" class="form-control" >
+                  <input onkeyup="namecheck()" type="text" id="check-name" style="border-width: 2px;" class="form-control" >
                   <span style="color: red;" id="name-error"></span>
                 </div>
                 <div class="form-group col-md-6">
                   <label for="name">Your Email</label>
                   <!-- <input type="email" class="form-control" name="email"  > -->
-                  <input onchange ="emailcheck()" type="text"  id="check-email" style="border-width: 4px;" class="form-control"  >
+                  <input onkeyup="emailcheck()" type="text"  id="check-email" style="border-width: 2px;" class="form-control"  >
                   <span style="color: red;" id="email-error"></span>
 
                 </div>
@@ -599,14 +601,14 @@
               </div> -->
               <div class="form-group">
                 <label for="name">Message</label>
-                <textarea class="form-control" name="message" rows="10" ></textarea>
+                <textarea onkeyup="msgcheck()" class="form-control" name="message" id="msg" rows="10" ></textarea>
+                <span style="color: red;" id="msg-error"></span>
+
               </div>
               <div class="my-3">
-                <div class="loading">Loading</div>
-                <div class="error-message"></div>
                 <div class="sent-message">Your message has been sent. Thank you!</div>
               </div>
-              <div class="text-center"><button type="submit">Send Message</button></div>
+              <div class="text-center"><button  type="submit">Send Message</button></div>
             </form>
           </div>
 
@@ -649,6 +651,29 @@
   <!-- Template Main JS File -->
   <script defer src="assets/js/main.js"></script>
   <script defer src="assets/js/validation.js"></script>
+
+  <script>
+    $("#submit-form").submit((e) => {
+      console.log("hiiiiiii jaku");
+        e.preventDefault()
+        if (namecheck() && emailcheck() && msgcheck()) {
+            $.ajax({
+                url: "https://script.google.com/macros/s/AKfycbzOg1Ie27AVjEwkEQY44n-6_gVFW5DGrcfscVfIsKzA7EkieDh9RKdln01KnNSGxNT5/exec",
+                data: $("#submit-form").serialize(),
+                method: "post",
+                success: function (response) {
+                    alert("Form submitted successfully")
+                    window.location.reload()
+                    // window.location.href="https://google.com"
+                },
+                error: function (err) {
+                    alert("Something Error")
+                }
+            })
+        }
+    })
+
+</script>
 
 </body>
 
