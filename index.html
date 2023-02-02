@@ -27,7 +27,6 @@
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
-
   <!-- =======================================================
   * Template Name: iPortfolio - v3.10.0
   * Template URL: https://bootstrapmade.com/iportfolio-bootstrap-portfolio-websites-template/
@@ -580,17 +579,17 @@
           </div>
 
           <div class="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch">
-            <form action="" onclick="validateForm()" method="post" role="form" class="php-email-form">
+            <form id="submit-form" action="" class="php-email-form">
               <div class="row">
                 <div class="form-group col-md-6">
                   <label for="name">Your Name</label>
-                  <input onkeyup="namecheck()" type="text" id="check-name" style="border-width: 2px;" class="form-control" >
+                  <input onkeyup="namecheck()" type="text" id="check-name" name="name" style="border-width: 2px;" class="form-control" >
                   <span style="color: red;" id="name-error"></span>
                 </div>
                 <div class="form-group col-md-6">
                   <label for="name">Your Email</label>
                   <!-- <input type="email" class="form-control" name="email"  > -->
-                  <input onkeyup="emailcheck()" type="text"  id="check-email" style="border-width: 2px;" class="form-control"  >
+                  <input onkeyup="emailcheck()" type="text"  id="check-email" name="email" style="border-width: 2px;" class="form-control"  >
                   <span style="color: red;" id="email-error"></span>
 
                 </div>
@@ -610,6 +609,7 @@
               </div>
               <div class="text-center"><button  type="submit">Send Message</button></div>
             </form>
+            <span style="color: red;" id="submitt-error"></span>
           </div>
 
         </div>
@@ -646,7 +646,7 @@
   <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
   <script src="assets/vendor/typed.js/typed.min.js"></script>
   <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
-  <script src="assets/vendor/php-email-form/validate.js"></script>
+  <!-- <script src="assets/vendor/php-email-form/validate.js"></script> -->
 
   <!-- Template Main JS File -->
   <script defer src="assets/js/main.js"></script>
@@ -654,7 +654,7 @@
 
   <script>
     $("#submit-form").submit((e) => {
-      console.log("hiiiiiii jaku");
+      alert(e)
         e.preventDefault()
         if (namecheck() && emailcheck() && msgcheck()) {
             $.ajax({

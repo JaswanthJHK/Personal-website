@@ -94,6 +94,7 @@ function msgcheck() {
 }
 
 function validateForm(){
+  var submitError = document.getElementById('submitt-error')
   if(!msgcheck() && !emailcheck() && !namecheck() ){
       submitError.style.direction = 'block';
       submitError.innerHTML = 'Please Fix the errors to submit'
